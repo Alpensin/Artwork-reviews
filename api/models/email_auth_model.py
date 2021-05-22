@@ -1,5 +1,3 @@
-from smtplib import SMTPException
-
 from django.conf import settings
 from django.core.mail import send_mail
 from django.db import models
@@ -40,10 +38,6 @@ class EmailAuth(models.Model):
     def save(self, *args, **kwargs):
         self.confirmation_code = get_random_string(RANDOM_STRING_LENGTH)
         message = f'{CONFIRMATION_CODE_TITLE}: {self.confirmation_code}'
-        send_mail(
-                SUBJECT, message, from_email=None, recipient_list=[self.email], 
-                fail_silently=True
-            )
-
-
+        send_mail(SUBJECT, message, from_email=None,
+                  recipient_list=[self.email], fail_silently=True)
         super().save(*args, **kwargs)
