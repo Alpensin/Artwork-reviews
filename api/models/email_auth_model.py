@@ -40,11 +40,10 @@ class EmailAuth(models.Model):
     def save(self, *args, **kwargs):
         self.confirmation_code = get_random_string(RANDOM_STRING_LENGTH)
         message = f'{CONFIRMATION_CODE_TITLE}: {self.confirmation_code}'
-        try:
-            send_mail(
-                SUBJECT, message, from_email=None, recipient_list=[self.email]
+        send_mail(
+                SUBJECT, message, from_email=None, recipient_list=[self.email], 
+                fail_silently=True
             )
-        except SMTPException:
-            return None
+
 
         super().save(*args, **kwargs)
