@@ -16,7 +16,7 @@ services:
       - "static_value:/var/html/static/"
       - "media_value:/var/html/media/"
   web: 
-    build: .
+    image: alpensin/yamdb_final:latest
     depends_on: 
       - db
     env_file: 
