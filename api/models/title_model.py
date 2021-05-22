@@ -1,6 +1,6 @@
+from api.validators import year_validator
 from django.db import models
 
-from api.validators import year_validator
 from .category_model import Category
 from .genre_model import Genre
 
