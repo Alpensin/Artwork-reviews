@@ -68,6 +68,7 @@ jobs:
   send_message:
     runs-on: ubuntu-latest
     needs: deploy
+    if: contains(['refs/heads/master', 'refs/heads/main'], github.ref)
     steps:
       - name: send message
         uses: appleboy/telegram-action@master
