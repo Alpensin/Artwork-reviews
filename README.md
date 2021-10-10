@@ -50,3 +50,4 @@ docker-compose exec web python manage.py migrate --noinput
 docker-compose exec web python manage.py collectstatic --noinput
 docker-compose exec web python manage.py createsuperuser
 ```
+![workflow status](https://github.com/Alpensin/yamdb_final/actions/workflows/yamdb_workflow.yaml/badge.svg)
